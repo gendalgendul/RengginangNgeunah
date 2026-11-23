@@ -1,0 +1,132 @@
+/* Warna & ukuran diatur di sini (diambil dari logo) */
+:root {
+  --orange: #E8A84C;
+  --orange-dark: #D9973A;
+  --tint: #FFF1DA;
+  --brown: #8B3E1F;
+  --brown-deep: #3A1C0E;
+  --ink: #4A2A1A;
+  --cream: #FFFAF2;
+  --line: #F0DFC6;
+  --red: #C23B2E;
+  --green: #3F8F4F;
+  --shadow: 0 14px 34px -16px rgba(139, 62, 31, .35);
+  --font: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: var(--font); color: var(--ink); background: var(--cream); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+h1, h2, h3 { color: var(--brown); line-height: 1.15; margin: 0; letter-spacing: -.02em; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--brown); outline-offset: 3px; }
+.container { width: min(100% - 2.5rem, 68rem); margin-inline: auto; }
+.skip { position: absolute; left: 1rem; top: -4rem; background: var(--brown-deep); color: #fff; padding: .6rem 1rem; border-radius: 8px; z-index: 100; }
+.skip:focus { top: 1rem; }
+
+/* Tombol */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; min-height: 3rem; padding: 0 1.6rem; border-radius: 999px; font: 600 1rem var(--font); text-decoration: none; border: 0; cursor: pointer; transition: background-color .2s, transform .2s; }
+.btn:active { transform: scale(.98); }
+.btn--primary { background: var(--orange); color: var(--brown-deep); }
+.btn--primary:hover { background: var(--orange-dark); }
+.btn--dark { background: var(--brown); color: #fff; width: 100%; }
+.btn--dark:hover { background: var(--brown-deep); }
+.btn--sm { min-height: 2.75rem; padding: 0 1.2rem; }
+
+/* Navbar */
+.site-header { position: sticky; top: 0; z-index: 50; background: rgba(255, 250, 242, .92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4.25rem; }
+.brand { display: flex; align-items: center; gap: .65rem; text-decoration: none; font-weight: 700; color: var(--brown); line-height: 1.15; }
+.brand img { border-radius: 12px; }
+.brand span { width: min-content; font-size: .95rem; }
+.brand--light { color: #fff; }
+.actions { display: flex; align-items: center; gap: .5rem; }
+.menu-toggle { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border: 0; background: none; color: var(--brown); border-radius: 12px; cursor: pointer; }
+.nav { display: none; position: absolute; inset: 100% 0 auto; background: var(--cream); border-bottom: 1px solid var(--line); padding: .5rem 1.25rem 1rem; }
+.nav.open { display: block; }
+.nav a { display: block; padding: .85rem 0; font-weight: 500; color: var(--brown-deep); text-decoration: none; }
+.nav a:hover { color: var(--brown); text-decoration: underline; text-underline-offset: 6px; }
+
+/* Hero */
+.hero { padding-block: 2.5rem 4rem; overflow: hidden; }
+.hero-grid { display: grid; gap: 3rem; align-items: center; }
+.hero-text { display: grid; gap: 1.5rem; justify-items: start; }
+.hero h1 { font-size: clamp(2.75rem, 12vw, 4.75rem); font-weight: 800; letter-spacing: -.035em; line-height: 1.02; }
+.hero h1 span { display: block; }
+.lead { font-size: 1.125rem; max-width: 30rem; }
+.hero-visual { position: relative; width: min(100%, 30rem); margin-inline: auto; padding-bottom: 16%; }
+.hero-photo { display: block; object-fit: cover; border-radius: 32px; box-shadow: var(--shadow); background: var(--tint); }
+.hero-photo--main { width: 80%; aspect-ratio: 4 / 5; }
+.hero-photo--second { position: absolute; right: 0; bottom: 0; width: 50%; aspect-ratio: 1; border: 6px solid var(--cream); }
+.stamp { position: absolute; top: -1rem; right: 2%; display: grid; place-content: center; text-align: center; width: 7.5rem; aspect-ratio: 1; border-radius: 50%; background: var(--orange); color: var(--brown-deep); box-shadow: var(--shadow); transform: rotate(-8deg); line-height: 1.1; animation: pop .7s .3s cubic-bezier(.2, 1.4, .4, 1) both; }
+.stamp span { font-size: .8rem; font-weight: 600; }
+.stamp strong { font-size: 1.5rem; font-weight: 800; letter-spacing: -.02em; }
+@keyframes pop { from { transform: scale(.6) rotate(-20deg); opacity: 0; } to { transform: scale(1) rotate(-8deg); opacity: 1; } }
+
+/* Section */
+.section { padding-block: clamp(4rem, 10vw, 7rem); scroll-margin-top: 4rem; }
+.section--white { background: #fff; }
+.section--tint { background: var(--tint); }
+.section-head { text-align: center; margin-bottom: 3rem; display: grid; gap: .75rem; }
+.section-head h2 { font-size: clamp(1.75rem, 5vw, 2.5rem); font-weight: 700; }
+
+/* Produk */
+.cards { display: grid; gap: 1.5rem; max-width: 56rem; margin-inline: auto; }
+.card { background: var(--cream); border: 1px solid var(--line); border-radius: 28px; overflow: hidden; box-shadow: var(--shadow); }
+.card img { width: 100%; aspect-ratio: 1; object-fit: cover; background: var(--tint); }
+.card-body { display: grid; gap: 1rem; padding: 1.5rem; }
+.card h3 { font-size: 1.5rem; font-weight: 700; }
+.colors { display: flex; gap: 1.25rem; list-style: none; margin: 0; padding: 0; font-size: .9rem; font-weight: 500; }
+.colors li { display: flex; align-items: center; gap: .45rem; }
+.dot { width: .9rem; height: .9rem; border-radius: 50%; }
+.dot--red { background: var(--red); }
+.dot--green { background: var(--green); }
+.price { color: var(--brown-deep); }
+.price strong { font-size: 1.75rem; font-weight: 800; letter-spacing: -.02em; margin-right: .25rem; }
+
+/* Kenapa */
+.why { display: grid; gap: 2.5rem; max-width: 56rem; margin-inline: auto; }
+.why-item { display: grid; gap: .6rem; justify-items: start; }
+.icon { display: grid; place-items: center; width: 3.5rem; height: 3.5rem; border-radius: 50%; background: var(--orange); color: var(--brown-deep); margin-bottom: .4rem; }
+.why-item h3, .steps h3 { font-size: 1.2rem; font-weight: 600; }
+
+/* Cara pesan */
+.steps { list-style: none; margin: 0 auto; padding: 0; display: grid; gap: 2rem; max-width: 56rem; }
+.steps li { display: grid; gap: .5rem; justify-items: start; }
+.num { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 50%; border: 2px solid var(--orange); color: var(--brown); font-weight: 700; margin-bottom: .3rem; }
+.steps-cta { text-align: center; margin-top: 3rem; }
+
+/* Footer */
+.footer { background: var(--brown-deep); color: #F6E7D3; padding-block: 3rem 2rem; }
+.footer-grid { display: grid; gap: 1.5rem; }
+.social { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
+.social a { display: inline-flex; align-items: center; min-height: 2.75rem; font-weight: 500; text-underline-offset: 5px; }
+.social a:focus-visible, .brand--light:focus-visible { outline-color: var(--orange); }
+.copy { font-size: .875rem; opacity: .85; }
+
+/* Animasi scroll (hanya aktif kalau JS jalan) */
+.js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+.js .reveal.is-visible { opacity: 1; transform: none; }
+
+@media (min-width: 768px) {
+  .nav { display: flex; position: static; gap: 2rem; padding: 0; border: 0; background: none; }
+  .nav a { padding: 0; }
+  .menu-toggle { display: none; }
+  .brand span { width: auto; white-space: nowrap; font-size: 1.05rem; }
+  .cards { grid-template-columns: 1fr 1fr; }
+  .why, .steps { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .footer-grid { grid-template-columns: 1fr auto; align-items: center; }
+  .copy { grid-column: 1 / -1; }
+}
+@media (min-width: 960px) {
+  .hero { padding-block: 5rem 6rem; }
+  .hero-grid { grid-template-columns: 1.05fr .95fr; }
+  .stamp { width: 9rem; }
+  .stamp strong { font-size: 1.85rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .stamp { animation: none; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+}
